@@ -1,0 +1,312 @@
+\documentclass[12pt, a4paper]{article}
+
+% =============================================================================
+% PREAMBLE
+% =============================================================================
+% Fonts =======================================================================
+% setting different font pkgs for different engines
+\usepackage{iftex} % provides ifPDFTeX
+\ifPDFTeX
+\usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+\usepackage{mathptmx}
+\else % if xelatex or luatex
+\usepackage{fontspec,xltxtra,xunicode}
+\setmainfont{Times New Roman}
+\fi
+% ============================================================================
+
+% Language ===================================================================
+% setting document language
+\usepackage[$if(language)$$language$$else$english$endif$]{babel}
+% ============================================================================
+
+% Layout Settings ============================================================
+% indent and paragraph settings
+\usepackage[top=3cm,left=3cm,bottom=2cm,right=2cm]{geometry}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+% justify text
+\usepackage{ragged2e}
+
+% toc style
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftsubsecindent}{0cm}
+\setlength{\cftsubsubsecindent}{0cm}
+% uppercase can only be applied after the document begins
+\AtBeginDocument{\renewcommand{\contentsname}{SUMÁRIO}}
+
+% paragraph and indent
+$if(indent_first)$
+\usepackage{indentfirst}
+$endif$
+\setlength{\parindent}{$if(indent)$$indent$$else$1.2cm$endif$}
+\setlength{\parskip}{0pt plus 2pt minus 1pt}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}\chead{}\lfoot{}
+\cfoot{}\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\thepage}
+
+% section numbering
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+
+
+% math support
+\usepackage{amsmath,amssymb}
+% ============================================================================
+
+% Tables =====================================================================
+$if(tables)$
+\usepackage{tabularx,longtable,booktabs,array}
+$endif$
+$if(multirow)$
+\usepackage{multirow}
+$endif$
+% ============================================================================
+
+% Lists ======================================================================
+% enables markdown lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% ============================================================================
+
+% Images =====================================================================
+\usepackage{floatrow}
+\usepackage{placeins}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+$if(graphics)$
+\usepackage{graphicx}
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+
+\makeatletter
+% -- if image width/height is bigger than your text, use linewidth/textheight
+% -- else use the image dimensions
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+$endif$
+
+% caption settings
+\usepackage[format=hang,labelsep=endash]{caption}
+\captionsetup{font={small,singlespacing}}
+
+% enables code syntax highlighting themes
+% via header "highlight: <theme name>"
+% ---- available themes are:
+%           default
+%           tango
+%           pygments
+%           kate
+%           monochrome
+%           espresso
+%           zenburn
+%           haddock
+%           texmate
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% Inserts text after float. Used to add a caption after floats
+\newcommand{\fonte}[1]{\FloatBarrier \begin{center}Fonte: #1\end{center}}
+
+% ============================================================================
+
+% Links ======================================================================
+\PassOptionsToPackage{hyphens}{url} % hyperref calls url
+\usepackage{hyperref}
+\urlstyle{same} % url font will be the same as current font (not monospace)
+\hypersetup{$if(colorlinks)$
+    colorlinks=true,
+    linkcolor={$if(linkcolor)$$linkcolor$$else$Maroon$endif$},
+    filecolor={$if(filecolor)$$filecolor$$else$Maroon$endif$},
+    citecolor={$if(citecolor)$$citecolor$$else$Blue$endif$},
+    urlcolor={$if(urlcolor)$$urlcolor$$else$Blue$endif$}}
+$else$
+    hidelinks}
+$endif$
+% ============================================================================
+
+
+
+% user-defined options========================================================
+% packages and other preamble options
+% can be included in the yaml header
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% Citations ==================================================================
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\baselineskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+% ============================================================================
+
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+\begin{document}
+
+% Cover ======================================================================
+\begin{titlepage}
+    \centering
+
+    \includegraphics[width=7cm]{ufla_logo_colorido.png}
+
+    \vspace{1cm}
+
+    \fontsize{14pt}{\baselineskip}\selectfont
+    \uppercase{\textbf{$for(author)$$author$$sep$\\$endfor$}}
+
+    \vspace{5cm}
+
+    $if(title)$
+        \fontsize{16pt}{\baselineskip}\selectfont
+        \uppercase{\textbf{$title$}}
+    $endif$
+    \normalsize
+
+    \vfill
+
+    \fontsize{14pt}{\baselineskip}\selectfont
+    \uppercase{\textbf{$if(city_state)$$city_state$$endif$}}\par
+    \textbf{$if(year)$$year$$endif$}
+    \normalsize
+\end{titlepage}
+% ============================================================================
+
+% Title Page =================================================================
+\thispagestyle{empty}
+\centering
+
+\fontsize{14pt}{\baselineskip}\selectfont
+\uppercase{\textbf{$for(author)$$author$$sep$\\$endfor$}}
+
+\vspace{5cm}
+
+$if(title)$
+    \fontsize{16pt}{\baselineskip}\selectfont
+    \uppercase{\textbf{$title$}}
+$endif$
+\normalsize
+
+\begin{flushright}
+    \begin{minipage}[t]{8.5cm}
+        \singlespacing{$work_type$ apresentada à Universidade Federal de
+        Lavras, como parte das exigências do $program$, para obtenção do título
+        de $degree$.}
+    \end{minipage}
+\end{flushright}
+
+\vspace{3cm}
+
+$for(professors)$$professors$$sep$\par $endfor$
+
+\vfill
+
+\fontsize{14pt}{\baselineskip}\selectfont
+\uppercase{\textbf{$if(city_state)$$city_state$$endif$}}\par
+\textbf{$if(year)$$year$$endif$}
+\normalsize
+
+\newpage
+% ============================================================================
+
+\thispagestyle{empty}
+\justifying
+\setstretch{1}
+
+% Resumo =====================================================================
+$if(resumo)$
+    \begin{center}{\textbf{\Large RESUMO}}\end{center}
+
+    \noindent
+    \input{resumo}
+
+    $if(palavras-chave)$
+        \medskip
+        \noindent
+        \textbf{Palavras-chave: }$for(palavras-chave)$$palavras-chave$$sep$. $endfor$
+    $endif$
+
+$endif$
+
+\newpage
+% ============================================================================
+
+% Abstract ==================================================================
+\thispagestyle{empty}
+$if(abstract)$
+    \begin{center}{\textbf{\Large ABSTRACT}}\end{center}
+
+    \noindent
+    \input{abstract}
+
+    $if(keywords)$
+        \medskip
+        \noindent
+        \textbf{Keywords: }$for(keywords)$$keywords$$sep$. $endfor$
+    $endif$
+
+$endif$
+
+\newpage
+% ============================================================================
+
+\setstretch{1.5}
+
+% TOC ========================================================================
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+\thispagestyle{empty}
+\tableofcontents
+
+\thispagestyle{empty}
+
+\newpage
+% ============================================================================
+
+$body$
+\end{document}
+% ===========================================================================

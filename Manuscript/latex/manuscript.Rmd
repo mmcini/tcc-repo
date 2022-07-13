@@ -1,0 +1,984 @@
+---
+title: Morfometria Digital de Solos com Horizontes Genéticos Enterrados com Apoio de Sensores Próximos
+author: Marcelo Mancini
+city_state: Lavras -- MG
+year: 2022
+work_type: Monografia
+program: Curso de Engenharia Ambiental e Sanitária
+degree: Bacharel
+professors:
+    - Orientador
+    - Prof. Dr. Sérgio Henrique Godinho Silva
+    - Co-orientador
+    - Prof. Dr. Nilton Curi
+resumo: true
+palavras-chave:
+    - Solos tropicais
+    - Pedogênese
+    - Descontinuidade litológica
+    - Vis-NIR
+    - pXRF
+abstract: true
+keywords:
+    - Tropical soils
+    - Pedogenesis
+    - Lithologic discontinuity
+    - Vis-NIR
+    - pXRF
+tables: true
+bibliography: references.bib
+csl: abnt.csl
+reference-section-title: REFERÊNCIAS
+indent_first: true
+language: brazilian
+output:
+    pdf_document:
+        template: uflatemplate.tex
+        latex_engine: xelatex
+---
+
+# INTRODUÇÃO
+
+A presença universal do solo na vida humana é indubitável. Sua matriz é
+base para a produção de alimentos, é fundação das obras urbanas, fonte
+de materiais para atividades humanas, e protagonista em uma gama de
+serviços ambientais [@YOUNG20011]. Sua complexidade, entretanto, é
+grande como sua importância. O solo é produto de uma intrincada
+interação de fatores ambientais, especialmente de seu material de
+origem, do clima, tempo de formação, do relevo em que se encontra e da
+biota que o transforma incessantemente [@JENNY19411]. Naturalmente, a
+resultante heterogeneidade espacial e temporal de seus atributos é
+desafio recorrente na pedologia.
+
+Nas últimas décadas, porém, avanços tecnológicos abriram novas portas
+para enfrentar tal desafio [@YOUNG20041], tornando possível a obtenção
+de dados em volumes antes impensáveis, a custos progressivamente menores
+[@WANZEK20181].
+
+Genericamente, o termo morfometria refere-se à quantificação da forma
+das coisas (do grego: *morfo*, forma; *metria*, medida). Na Ciência do
+Solo, morfometria representa a quantificação de atributos do solo que
+podem ser observados ao longo de perfis, como estrutura, variações de
+cor, textura, as quais permitem aos cientistas inferir sobre atributos
+físicos e químicos dos solos [@HARTEMINK20141]. Tal descrição dos perfis
+de solo é peça central na pedologia e, até o passado recente, dependia
+majoritariamente de medições realizadas por instrumentos mecânicos e
+informações visuais. Entretanto, recentemente novas ferramentas
+tecnológicas revolucionaram os métodos de coleta e análise de dados
+pedológicos, fornecendo meios práticos para a digitalização de imagens e
+objetos [@MOHAMMED20161] e análises além da luz visível
+[@ADAMCHUK20041].
+
+Ainda assim, os avanços atingiram primeiramente os estudos mais amplos
+visando a entender a variação horizontal dos solos ao longo da paisagem
+[@BHATTACHARYA20211; @MENEZES20141], sendo pouco utilizados na
+caracterização morfométrica de perfis. Apenas recentemente técnicas mais
+sofisticadas começaram a ser aplicadas verticalmente, no estudo da
+variabilidade espacial de solos em profundidade. Buscando cunhar este
+moderno conjunto de ferramentas e técnicas aplicadas ao estudo de perfis
+de solo, Hartemink e Minasny [-@HARTEMINK20141] introduziram o termo
+*"digital soil morphometrics"*-- morfometria digital de solos.
+
+Entre os diversos equipamentos que estenderam as análises pedológicas
+para além do espectro visível, ganham destaque recente os sensores
+próximos [@TERRA20181]. Suas qualidades incluem a capacidade de
+utilização em campo, facilidade de operação e menor custo. São
+qualidades relevantes considerando-se a variabilidade espaço-temporal do
+solo, não apenas ao longo da superfície, mas também em profundidade,
+demandando grande número de amostras para estudos representativos.
+Dentre os sensores próximos utilizados na morfometria digital de solos,
+este trabalho foca no uso dos mais presentes na literatura recente: o
+espectrômetro portátil de fluorescência de raios-X (pXRF) e o
+espectroscópio de refletância difusa nas faixas de luz visível e
+infravermelho próximo (Vis-NIR).
+
+Um exemplo de como tais tecnologias podem auxiliar na pedologia é sua
+aplicação em solos que apresentam sequência incomum de horizontes. Os
+solos, a depender de seu ambiente de formação, apresentam feições
+características em função da profundidade. Em algumas situações, porém,
+perfis apresentam horizontes genéticos enterrados, possuindo sequência
+de horizontes que fogem ao esperado para uma determinada classe de solo,
+como, por exemplo, um horizonte composto por material bem diferente do
+restante do perfil (material alóctone vs. material autóctone). Isso
+indica que um processo de deposição de sedimentos recobriu um solo
+pretérito, formando um manto com características diferentes acima. São
+os denominados solos enterrados [@USDA20101]. Quando solos nessas
+condições preservam materiais muito antigos, conservando informações
+importantes sobre o paleoambiente em que foram formados, podem também
+ser chamados de paleossolos [@ALEXANDROVSKYI20041]. São interessantes
+exemplos da riqueza de informações que pode ser preservada em
+profundidade no solo.
+
+Assim, este trabalho objetivou examinar solos com horizontes genéticos
+descontínuos utilizando a morfometria digital, buscando avaliar o uso de
+sensores próximos para potencializar o estudo dos solos em profundidade.
+Em conjunto com análises morfológicas e laboratoriais tradicionais, os
+sensores pXRF e Vis-NIR foram aplicados visando a: i) caracterizar os
+atributos físico-químicos de três perfis de solo enterrados em Lavras,
+Minas Gerais; ii) testar o potencial dos sensores em fornecer dados para
+o estudo pedogenético dos perfis; iii) comparar os dados laboratoriais e
+aqueles fornecidos pelos sensores próximos. A hipótese é que os sensores
+serão capazes de auxiliar na caracterização morfométrica dos perfis,
+especialmente dos horizontes genéticos enterrados, potencializando as
+técnicas de morfometria tradicionais.
+
+# REFERENCIAL TEÓRICO
+
+## Solos enterrados ou paleossolos?
+
+O termo "solo enterrado" é uma maneira genérica de se referir a solos
+que foram recobertos por deposição de material. O termo nasceu da
+necessidade de classificar solos alvos de deposição recente, como ocorre
+comumente em planícies fluviais que recebem sedimentos; regiões
+vulcânicas onde há deposição de cinzas; locais onde dunas se movimentam
+[@SMITH19861]; e onde sedimentos foram depositados após transporte
+eólico e degelo [@ASHTEKAR20131].
+
+### Solos enterrados
+
+Conceitualmente, portanto, um solo enterrado pressupõe um manto de
+material recente, pouco alterado, depositado sobre o solo anteriormente
+formado no local. A alteração do material é destacada pois, caso haja
+pedogênese significativa, as propriedades dos horizontes misturam-se,
+não sendo possível dizer que o manto depositado acima e o solo formado
+abaixo são completamente descontínuos. Porém, ainda que a pedogênese
+tenha ocorrido e não se possa considerar que o material acima e abaixo
+são independentes, descontinuidades entre os horizontes podem
+permanecer. Para tentar diferenciar solos completamente distintos
+daqueles que já começaram a homogenizar-se, o sistema americano de
+classificação de solos traz dois conceitos: o de solos enterrados e
+horizontes genéticos enterrados [@USDA20101].
+
+Segundo nota técnica do Departamento de Agricultura dos Estados Unidos (USDA),
+um solo enterrado é aquele com manto de material recente de espessura $\geq$ 50
+cm, ou entre 30 e 50 cm contanto que a espessura do manto seja no mínimo metade
+daquela dos horizontes diagnósticos do solo enterrado.
+
+O manto de material recente (Holoceno ou mais jovem) necessita ser
+composto por material pouco alterado, admitindo-se que tenha horizonte A
+e/ou horizonte câmbico, mas nenhum outro horizonte diagnóstico. Não há
+critério mínimo de espessura.
+
+Portanto, se o manto acima não se enquadrar nos requisitos citados, o
+solo não é considerado um solo enterrado. Entretanto, não significa que
+não haja descontinuidade entre os horizontes. Por exemplo, pode haver
+horizonte A abaixo de material que sofreu pedogênese significativa, ou o
+manto sobrejacente pode ser demasiadamente raso para que o solo se
+enquadre como enterrado. Nestes casos, diz-se que os solos possuem
+horizontes genéticos enterrados, mas não são solos enterrados. Deste
+modo, todo solo enterrado possui horizontes genéticos enterrados, mas
+nem todos os que possuem tais horizontes são classificados como solos
+enterrados.
+
+Assim, em resumo, um solo enterrado é aquele que possui horizontes
+genéticos --com gênese anterior ao soterramento-- enterrados por
+material com ao menos 50 cm de espessura que sofreu pouca pedogênese e,
+portanto, não iniciou o processo de homogeneização com o solo anterior
+formado abaixo [@USDA20101].
+
+### Paleossolos
+
+Quando trazem informações sobre épocas passadas, tanto ambientais como
+mudanças no clima, quanto antropogênicas como traços de civilizações
+pretéritas, os solos enterrados são também chamados de paleossolos
+[@PIETSCH20171]. O campo da Ciência do Solo que estuda tais tipos de
+solo é denominada paleopedologia.
+
+Com o soterramento do solo, a dinâmica de suas propriedades é
+completamente alterada. No solo soterrado, acúmulo de material orgânico
+praticamente cessa e o transporte de partículas minerais e água
+provenientes da superfície reduz significativamente [@MITUSOV20091].
+Assim, propriedades genéticas causadas pelo regime hídrico e
+características físico-químicas dos solos enterrados são preservadas,
+como o teor de matéria orgânica, a estrutura e a composição
+mineralógica.
+
+A pedogênese depende fortemente das condições climáticas. Portanto,
+naturalmente a preservação destas propriedades guardam informações
+valiosas sobre o clima em que formaram-se os paleossolos. Muitos estudos
+exploram traços das mudanças climáticas entre o Pleistoceno e o Holoceno
+por meio dos solos [@BIANCHINI20221; @MEIER20141].
+
+O processo de soterramento pode também indicar os diferentes usos do
+solo por civilizações antigas. Atividades agrícolas, desmatamento e
+deposição de resíduos são exemplos de interferências geradas pela
+ocupação humana que podem permanecer no solo [@PIETSCH20171].
+
+## Sensores próximos na Ciência do Solo
+
+### Heterogeneidade dos solos
+
+Os solos são o resultado do intemperismo de rochas ou sedimentos
+depositados na crosta terrestre expostos aos agentes de intemperismo. O
+modelo conceitual clássico que relaciona o solo formado aos fatores
+ambientais responsáveis por sua gênese foi proposto por Jenny em 1941
+[@JENNY19411], com base em ideias de Dokuchaev, e define cinco variáveis
+principais que regem as propriedades do solo: clima (Cl), organismos
+(o), relevo (r), material de origem (p -- _parent material_) e tempo
+(t), além de outros fatores ambientais (...) (Eq. \ref{eq:formationfact}).
+
+```{=tex}
+\begin{equation}
+Solo = f(Cl, o, r, p, t, ...)
+\label{eq:formationfact}
+\end{equation}
+```
+
+
+Naturalmente, um corpo cujas propriedades dependem de tantos fatores distintos
+tende a ser heterogêneo ao longo da paisagem. Solos em relevos íngremes tendem a
+ser rasos devido ao carregamento de partículas pela água (r), solos em regiões
+frias tendem a preservar maior teor de matéria orgânica (Cl e o), solos em
+regiões que sofreram glaciação recente são geralmente menos desenvolvidos pois
+retomaram seu processo de formação apenas após seu degelo (t). E mesmo em
+condições muito semelhantes, um solo pode possuir atributos bruscamente
+diferentes de outro adjacente apenas ao mudar-se a rocha –ou sedimentos–
+formadora abaixo (p). Importante notar que os fatores de formação do solo não
+agem apenas ao longo da superfície (paisagem), mas também em profundidade,
+fazendo do solo um corpo tridimensional, complexo e heterogêneo.
+
+Essa grande variação espacial de propriedades é um desafio enfrentado pela
+Ciência do Solo desde sua concepção em meados século XIX. Hartemink _et al._
+[-@HARTEMINK20131] citam uma discussão entre seguidores daquele que é
+considerado o fundador da pedologia, V. V. Dokuchaev, e G. F. Nafedov em 1908,
+na qual Nafedov alegava que o agrupamento dos solos em classes possuía pouco uso
+prático, já que os atributos do solo variavam demasiadamente dentro de uma mesma
+classe. Por isso –defendia Nefedov– dever-se-ia mapear as propriedades
+separadamente, para depois agruparem-se regiões com propriedades similares. Suas
+ambições, porém, não eram compartilhadas por seus contemporâneos, e não havia
+dados e instrumentação suficientes para pôr em prática sua ideia.
+
+Entretanto, mais de 100 anos depois, apesar dos grandes avanços na pedologia e
+no mapeamento de solos, a demanda por maior detalhamento de informações
+pedológicas continua crescendo e ainda enfrenta dificuldades
+[@LAMICHHANE20211; @DHARUMARAJAN20191; @RIVIECCIO20201]. A diferença entre o
+século passado e o atual é que, com o advento e evolução da computação, uma
+gama de novos métodos e ferramentas foram introduzidos na Ciência do Solo,
+aumentando a capacidade de análise e obtenção de dados. O avanço tecnológico
+permitiu o surgimento de metodologias como o mapeamento digital de solos, termo
+cunhado por McBratney, Santos e Minasny [-@MCBRATNEY20031], hoje área já bem
+difundida que visa ao detalhamento de informações pedológicas combinando-se
+dados laboratoriais e espaciais analisados através de técnicas de estatística
+computacional. Entretanto, tais avanços só foram possíveis graças ao uso de
+equipamentos como os sensores proximais e remotos, que possibilitaram a coleta
+ágil de dados em grandes áreas. Aqui, focar-se-á nos sensores utilizados à
+pequenas distâncias das amostras, os chamados sensores próximos.
+
+### Espectroscopia de luz visível e infravermelho
+
+Uma das primeiras técnicas de análise de refletância de luz a serem utilizadas
+na análises de solos foi a medição da refletância do espectro visível (entre 350
+e 780 nm) e infravermelho próximo (entre 780 e 2500 nm) dos solos, na busca por
+traços espectrais que diferenciassem seus atributos.
+
+A análise do espectro visível e infravermelho próximo de maneira remota começou
+a popularizar-se nos anos 1970, depois do lançamento do satélite LANDSAT-1,
+quando dados espectrais da superfície tornaram-se mais acessíveis [@GE20111].
+A análise por sensoriamento próximo também já era conduzida na mesma época. Já
+no começo da década de 1970 pode-se encontrar trabalhos sobre o tema, como o de
+Condit [-@CONDIT19701], que analisou a refletância entre os comprimentos de
+onda 320 e 1000 nm em 160 amostras de solo coletadas nos Estados Unidos em 36
+estados, notando três tipos característicos de curvas espectrais entre suas
+amostras. Mas foi principalmente a partir dos anos 1990 que o número de
+publicações sobre sensoriamento próximo passaram a crescer consideravelmente
+(Figura \ref{fig:publicacoes}).
+
+![Número de publicações sobre solos entre 1990 e 2021 utilizando as
+palavras-chave "Proximal sensing", "pXRF", "Vis-NIR". Busca realizada na
+base de dados Web of Science, em março de 2022.
+\label{fig:publicacoes}](../../Figures/publication_numbers.png){width="13cm"}
+
+\fonte{Do autor (2022)}
+
+O espectroscópio de refletância difusa de radiação visível e infravermelho
+próximo (Vis-NIR) é um sensor próximo que captura a radiação refletida pelo
+objeto, no caso as amostras de solo, em cada comprimento de onda do espectro
+eletromagnético nas regiões do visível e infravermelho próximo. Fornece,
+portanto, dados que permitem inferir sobre a interação entre a radiação
+eletromagnética e os constituintes minerais e orgânicos do solo, a depender de
+quais porções da radiação são absorvidas ou refletidas pelos solos
+[@TERRA20181].
+
+Quando a luz atinge um objeto, ela interage com o mesmo, podendo atravessá-lo,
+ser absorvida ou refletida. Os fótons que são refletidos em cada comprimento de
+onda podem ser detectados, deixando claro quais comprimentos de onda foram
+absorvidos pelo material em maior ou menor intensidade. A absorção de fótons
+pode ocorrer por três tipos de interação entre o fóton e a matéria: transições
+eletrônicas, vibracionais ou rotacionais [@FANG20181]. Nas regiões do espectro
+visível e infravermelho próximo, as interações pertinentes são as transições
+eletrônicas e vibracionais.
+
+Nas transições eletrônicas, ao receber um fóton, a energia absorvida pelo átomo
+pode levar um elétron a um orbital mais energético (denominada transição d-d),
+ou fazer com que um elétron seja transferido de um átomo para outro
+(transferência de carga), como ocorre, por exemplo, em óxidos de ferro
+[@FANG20181]. As transições vibracionais correspondem às interações entre os
+fótons e as ligações químicas, fazendo-as vibrar em maior frequência. Exemplos
+de ligações que interagem com a radiação visível e infravermelho são os grupos
+O-H, C-H, C-C e N-H.
+
+A absorção dos fótons por estes fenômenos físicos gera padrões diferentes de
+refletância (aquilo que não fora absorvido) a depender da composição do material
+[@ZHAO20181]. Os óxidos de ferro mais comuns no solo, hematita
+($\alpha$-Fe$_2$O$_3$) e goetita ($\alpha$-FeOOH), são exemplos de minerais
+que possuem padrões de refletância característicos (FANG _et al._, 2018). Na
+hematita, absorções (diminuições da refletância) próximas aos comprimentos de
+onda 880, 650 e 520 nm são típicas; na goethita, fortes absorções
+características podem ser notadas próximas a 920, 600 e 480 nm (DEMATTÊ et
+al., 2015). Alguns argilominerais comuns em solos brasileiros, como a caulinita,
+também possuem assinaturas espectrais diagnósticas, como grande absorção em 1400
+e 2200 nm, causada pela transição vibracional nos grupos OH e Al-OH,
+
+É graças aos padrões de absorção típicos de cada material, que funcionam como
+uma assinatura, que é possível inferir atributos dos solos a partir de dados
+espectrais. As explorações de seus usos continuam em avanço crescente na
+literatura, sendo alguns poucos exemplos: a inferência de minerais dos solos
+[@COBLINSKI20211], a estimativa de atributos físicos e químicos (e.g., textura
+e teor trocável de nutrientes) [@BENEDET20201; @ZHANG20201] e a detecção de
+poluentes nos solos [@CORRADINI20191].
+
+### Espectrometria de fluorescência de raios-X
+
+O uso de raios-X no estudo da matéria não é tão recente. Desde sua descoberta,
+em 1895, por Wilhelm Röntgen, não levou muito tempo até que fossem aplicados no
+estudo da estrutura cristalina de materiais por Max von Laue, em 1913, através
+da técnica que ficou conhecida como espectrometria de difração de raios-X, muito
+usada em estudos de mineralogia até os dias atuais [@GLANZMAN20071]. Pouco
+depois, na década de 1920, os raios-X passaram também a ser utilizados na
+quantificação da composição química dos materiais. Ao serem atingidos por
+raios-X, os átomos emitem uma radiação secundária característica, a chamada
+fluorescência, que permite sua quantificação. A técnica ficou conhecida como
+espectrometria de fluorescência de raios-X (_X-ray fluorescence spectrometry–
+XRF_).
+
+As técnicas para quantificação química, porém, só se popularizaram depois da
+década de 1950, depois que o primeiro equipamento de XRF fora disponibilizado
+comercialmente. Ainda assim, os espectrômetros de raios-X eram essencialmente
+equipamentos de laboratório, de elevado preço, com necessidade de preparação
+minuciosa das amostras e de considerável conhecimento técnico para a realização
+das análises. O uso de XRF na Ciência do Solo pode ser atribuído a uma tendência
+que começou do final da década de 1970, quando foram comercializados pela
+primeira vez os equipamentos portáteis de XRF (pXRF) [@LEMIERE20181]. A
+portabilidade e seu fácil uso permitiram análises rápidas tanto em campo quanto
+em laboratório, aos custos de menor precisão devido à miniaturização da
+tecnologia. Porém, apesar do desenvolvimento da tecnologia que permitiu a
+criação de espectrômetros portáteis de raios-X (pXRF) ter começado há 40 anos,
+foi apenas nos últimos 10 anos que o número de trabalhos sobre o tema na Ciência
+do Solo viu um crescimento expressivo (Figura \ref{fig:publicacoes}), havendo
+ainda muito a ser explorado sobre seu uso nas geociências [@YOUNG20161].
+
+A espectrometria de XRF baseia-se no princípio de que, quando um átomo recebe
+raios-X primários de alta energia, seus elétrons absorvem energia, elevando-se
+para orbitais mais distantes do núcleo. O estado mais energético, porém, não é
+estável. Os elétrons excitados, portanto, voltam ao seu orbital anterior,
+liberando a energia previamente absorvida em forma de raios-X secundários, ou
+fluorescência (Figura \ref{fig:pxrf_exemple}). Cada elemento emite raios-X
+secundários em energias características de transição elétrons entre orbitais dos
+átomos, permitindo sua identificação. A intensidade dos raios-X secundários
+detectados é proporcional à concentração do elemento, permitindo sua
+quantificação [@KALNICKY20011; @RIBEIRO20171].
+
+![Ilustração da liberação de fluorescência característica (raios-X
+secundários) após a irradiação do átomo por raios-X primários. O
+elemento na ilustração é o Fe (Z = 26).
+\label{fig:pxrf_exemple}](../../Figures/pxrf_exemple.png){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+A quantificação dos diferentes elementos depende da capacidade de contar os
+pulsos de radiação secundária emitida por cada átomo. Elementos mais leves
+emitem radiação menos energética, de mais difícil detecção [@SILVA20211]. A
+energia da radiação secundária também está relacionada com a energia recebia
+pelo átomo (emitida pelo equipamento). Portanto, a miniaturização da tecnologia
+em equipamentos portáteis (pXRF) aumenta a praticidade, mas diminui a capacidade
+de detecção de elementos leves, já que usam emissores de menor energia
+[@YOUNG20161]. Os pXRF, geralmente, são capazes de detectar elementos do Mg (Z
+= 14) até o U (Z = 92).
+
+A quantificação dos diferentes elementos depende da capacidade de contar
+os pulsos de radiação secundária emitida por cada átomo. Elementos mais
+leves emitem radiação menos energética, de mais difícil detecção
+[@SILVA20211]. A energia da radiação secundária também está relacionada
+com a energia recebia pelo átomo (emitida pelo equipamento). Portanto, a
+miniaturização da tecnologia em equipamentos portáteis (pXRF) aumenta a
+praticidade, mais diminui a capacidade de detecção de elementos leves,
+já que usam emissores de menor energia [@YOUNG20161]. Os pXRF,
+geralmente, são capazes de detectar elementos do Mg (Z = 14) até o U (Z
+= 92).
+
+Ainda que menos potentes e precisos que os convencionais equipamentos de XRF de
+laboratório, o pXRF tem atraído a atenção da Ciência do Solo recentemente pela
+possibilidade da obtenção de teores totais dos elementos químicos de modo mais
+simples e portátil [@SILVA20211]. Alguns exemplos de seu uso são: a predição
+de atributos de fertilidade e textura do solo [@ANDRADE20201; @FARIA20201],
+investigação de processos pedogenéticos [@STOCKMANN20161], o estudo da
+distribuição de materiais de origem [@MANCINI20191; @MANCINI20192] e a análise
+de contaminantes no solo [@ROUILLON20161; @HORTA20151].
+
+## Morfometria digital
+
+O solo não é bidimensional. Como mencionado anteriormente, o solo não é
+heterogêneo apenas ao longo da paisagem, horizontalmente, mas também
+verticalmente, em profundidade. Apesar das novas tecnologias, como os sensores
+citados, estarem sendo testadas amplamente no estudo da variabilidade espacial
+das propriedades dos solos horizontalmente, poucos foram utilizados em
+caracterizações de perfis [@HARTEMINK20141], especialmente considerando
+solos tropicais [@SILVA20181; @MANCINI20211; @BENEDET20221].
+
+Não se pode esquecer que o avanço no mapeamento digital de solos se dá pela
+disponibilidade de dados e conhecimentos sobre os perfis de cada solo. Seja no
+mapeamento de classes ou de atributos, as informações oferecidas pelos mapas ou
+já incluem as variações em profundidade indiretamente (informações contidas nas
+classes de solos), ou necessitam informar a profundidade em que foram mapeadas
+para que possam ser interpretadas. Entretanto, o nível de detalhes e variações
+de atributos em profundidade nos perfis através da morfometria digital é maior
+que aquela expressa em mapas de solos, uma vez que apresentam finalidades
+diferentes. Assim, juntamente com os esforços contínuos para desenvolver o
+mapeamento digital, é igualmente importante avançar nas técnicas de
+caracterização dos perfis de solo.
+
+Em sua convocação aos cientistas de solo para a integração do sensoriamento
+próximo à morfometria na pedologia, Hartemink e Minasny [-@HARTEMINK20141]
+listam 11 atributos comumente descritos em um perfil de solo que podem receber o
+auxílio de sensores em sua análise: horizontes e seus limites, textura, cor,
+estrutura, umidade, mosqueados, consistência, carbonatos, fragmentos de rocha,
+poros e resistividade.
+
+A descrição de horizontes é um bom exemplo de uma característica importante dos
+solos cuja descrição pode ser potencializada por sensores. Muitas vezes, as
+diferenças entre horizontes são imperceptíveis a olho nu. Nos trópicos, o
+intemperismo intenso e longo, associado à lixiviação, homogeneiza a aparência
+dos solos e dificulta ainda mais o processo de separação de horizontes, muitas
+vezes dependendo de análises laboratoriais para notarem-se as diferenças. Estas,
+por sua vez, têm um custo e ainda demandam certo tempo, o que limita o número de
+amostras que podem ser analisadas por perfil.
+
+Estudos recentes, porém, indicam a capacidade de sensores como o pXRF e Vis-NIR
+em detectar tais diferenças em poucos segundos. Benedet _et al._
+[-@BENEDET20221] e Mancini _et al._ [-@MANCINI20211] estudaram Latossolos com
+aparência homogênea utilizando os sensores pXRF e Vis-NIR e conseguiram detectar
+grandes variações químicas ao longo do perfil apesar do alto grau de
+intemperismo dessa classe de solo (Figura \ref{fig:morphometrics_exemple}).
+Silva _et al._ [-@SILVA20181] analisaram o teor de elementos em cada fração de
+tamanho (areia, silte e argila) ao longo de um perfil de solo utilizando o pXRF,
+avaliando como o intemperismo afeta a distribuição de elementos químicos em cada
+fração e ao longo dos horizontes.
+
+![Exemplo de morfometria digital de solos. Variações químicas em um
+Latossolo Vermelho-Amarelo de 4,5 m imperceptíveis a olho nu, cuja
+análise tradicional seria difícil e custosa pela elevada profundidade do
+perfil. Perfil localizado em Lavras, Minas Gerais, Brasil. Adaptado de
+Mancini _et al._ [-@MANCINI20211].
+\label{fig:morphometrics_exemple}](../../Figures/morphometrics_exemple.png){width="12cm"}
+
+\fonte{Adaptado de Mancini et al. (2021)}
+
+Existem poucos artigos publicados sobre morfometria digital de solos, apesar da
+importância da descrição de perfis na Ciência do Solo. Levará tempo até que
+métodos utilizando imagens digitais e sensores venham a ser considerados
+convencionais, mas quando forem, certamente maior qualidade de dados pedológicos
+será obtida. É neste contexto que este trabalho busca utilizar os sensores pXRF
+e Vis-NIR para tentar contribuir com esse avanço na avaliação pedológica de
+perfis de solos e a variação de seus atributos dentro e entre horizontes. 
+
+# MATERIAIS E MÉTODOS
+
+## Área de estudo
+
+O estudo foi realizado no município de Lavras, no Estado de Minas Gerais, Brasil
+(Figura \ref{fig:area}). O município encontra-se entre as
+latitudes 21,45\textdegree e 21,10\textdegree S e longitudes 45,29° e 44,79° W
+(WGS84). A temperatura média na região é 20,4 °C e a precipitação média anual
+é 1.460 mm [@ALVARES20131]. A altitude do município varia entre 760 e 1.260
+m. A vegetação na região é floresta tropical semi-perene [@CURI20171].
+
+![Área de estudo, localização dos perfis de solo estudados e mapa
+altimétrico da região, em Minas Gerais, Brasil [@ASF20151].
+\label{fig:area}](../../Figures/area_estudo.jpg){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+## Classificação dos perfis de solo
+
+Foram estudados três perfis, dois dentro do campus da Universidade Federal de
+Lavras (UFLA) e um em estrada rural, próxima à Serra da Bocaina; todos em
+Lavras, Minas Gerais, Brasil (Figura \ref{fig:area}). Os três perfis foram
+classificados como Organossolo Háplico (OX), Cambissolo Háplico (CX) e Gleissolo
+Háplico (GX) (Figura \ref{fig:perfis_solo}) [@SANTOS20181]. Os materiais de
+origem estão apresentados na Tabela \ref{tab:topografia}. Os dados dos solos
+estudados encontram-se na seção Resultados e Discussão.
+
+![Perfis de solo estudados e a divisão de seus horizontes, em Lavras,
+Minas Gerais, Brasil.
+\label{fig:perfis_solo}](../../Figures/perfis_solo.jpg){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+Os três solos possuem horizontes genéticos enterrados, i.e., manto sobrejacente
+de deposição recente que difere do restante dos horizontes. Entretanto, apenas o
+CX possui manto de material pouco alterado (horizonte Bi, pouco desenvolvido)
+com espessura superior a 50 cm, enquadrando-se como solo enterrado. Portanto, CX
+recebe a classificação do solum formado acima (Cambissolo Háplico) (Figura
+\ref{fig:perfis_solo}). Os demais solos (OX e GX), com mantos de espessura
+inferior a 50 cm, possuem horizontes genéticos enterrados pelo manto
+sobrejacente, mas não enquadram-se como solos enterrados. São, portanto,
+classificados a partir do solo abaixo do manto, i.e., Organossolo Háplico e
+Gleissolo Háplico. O sufixo ‘b’ (do inglês, buried) foi utilizado para designar
+horizontes genéticos enterrados [@USDA20101].
+
+## Amostragem e análises laboratoriais
+
+Um grid amostral de 8 linhas e 5 colunas (15 x 15 cm) foi utilizado para a
+coleta de amostras ao longo dos perfis (Figura \ref{fig:perfis_solo}). Assim,
+foram coletadas 40 amostras por perfil, somando 120 amostras no total. Para as
+demais análises, a primeira linha de pontos foi considerada como o ponto 5 cm de
+profundidade.
+
+```{r topografia, echo = F}
+library(knitr)
+library(readxl)
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(kableExtra))
+
+dados_solos <- read_xlsx("../../Tables/tabela_topografia.xlsx")
+
+dados_solos %>%
+    kbl(booktabs = T,
+    caption = "Data topográficos e material de origem de três perfis de solo
+    em Lavras, Minas Gerais, Brasil.",
+    format = "latex") %>%
+    kable_styling(position = "center",
+                  latex_options = c("HOLD_position", "scale_down"))
+```
+\fonte{Do autor (2022)}
+
+As amostras foram secas ao ar (terra fina seca ao ar -- TFSA) e
+peneiradas com malha de 2 mm. As seguintes análises químicas foram
+realizadas: extração de Ca$^{2+}$, Mg$^{2+}$ e Al$^{3+}$ em KCl (1 mol
+L$^{-1}$) [@MCLEAN19581]; teor disponível de K$^+$ e P extraídos com
+solução Mehlich-1 [@MEHLICH19841]; acidez potencial (H$^+$ + Al$^{3+}$)
+por extrator acetado de cálcio e titulação com NaOH [@VETTORI19691];
+matéria orgânica por oxidação com dicromato de potássio em solução
+sulfúrica [@WALKLEY19341]. A textura foi obtida pelo método da pipeta
+[@GEE19841].
+
+A saturação por Al (m) e a saturação por bases (V) foram calculadas
+pelas Equações \ref{eq:al_sat} e \ref{eq:base_sat}, respectivamente.
+
+```{=tex}
+\begin{equation}
+m (\%) = \frac{Al^{3+}}{K^+ + Ca^{2+} + Mg^{2+} + Al^{3+}}
+\label{eq:al_sat}
+\end{equation}
+```
+```{=tex}
+\begin{equation}
+V (\%) = \frac{K^+ + Ca^{2+} + Mg^{2+}}{K^+ + Ca^{2+} + Mg^{2+} + H^+ + Al^{3+}}
+\label{eq:base_sat}
+\end{equation}
+```
+## Análises com sensores próximos
+
+### Sensor portátil de raios-X (pXRF)
+
+Todas as amostras foram analisadas por um pXRF modelo Delta Professional
+Olympus (MA, US). O equipamento possui um ânodo de prata e um tubo de
+raios-X de 4 W. As amostras foram analisadas em triplicata usando o modo
+_"soil"_; 60 s cada leitura. A média das triplicatas foi utilizada nas
+análises.
+
+O equipamento foi calibrado utilizando-se quatro amostras de referência
+certificadas pelo _National Institute of Standards and Technology_ (NIST):
+SRM2710a, contendo elevado teor de elementos-traço; SRM711a, contendo
+teor moderado de elementos-traço; uma liga metálica 316; e uma amostra
+de SiO$_2$ puro.
+
+### Espectrômetro de refletância difusiva de luz visível e infravermelho (Vis-NIR)
+
+Para as análises de Vis-NIR, as 120 amostras foram distribuídas em placas de
+Petri de modo homogêneo. Foi utilizado um espectroradiômetro Fieldspec 3
+(Analytical Spectral Devices, ASD, Boulder, CO). O equipamento detecta entre as
+faixas 350 e 2500 nm, com resolução de 1 nm entre 350 e 700 nm, 3 nm entre 700
+e 1400 nm e 10 nm entre 1400 e 2500 nm.
+
+O sensor foi posicionado a 8 cm de distância das amostras. As mesmas
+foram iluminadas por duas lâmpadas de halogêneo posicionadas a 35 cm
+(raios não colimados; ângulo zenital de 30\textdegree), com um ângulo de
+90\textdegree entre si.
+
+A cada 20 min uma placa branca de referência Spectralon foi utilizada
+para manter o equipamento calibrado durante as leituras. As amostras
+foram analisadas em duplicatas, rotacionando-se o sensor em
+180\textdegree a cada repetição. Cada leitura única consistiu 100 scans
+em um período de 10 s cada.
+
+Os dados foram exportados interpolando-se as leituras para 1 nm de resolução,
+resultando em um dado para cada nanômetro de espectro detectado,
+perfazendo 2.151 dados para cada espectro (350 a 2500 nm). As médias das duas
+repetições foram utilizadas nas análises posteriores.
+
+Para uma melhor visualização dos dados, os espectros foram
+pré-processados utilizando-se a técnica de remoção do contínuo
+[@CURCIO20131]. O método consiste em criar uma "casca" de referência em
+torno do espectro, a qual se atribui valor 1; depois, analisam-se as
+variações de cada banda em relação à nova referência.
+
+## Análises estatísticas e espaciais
+
+Toda a manipulação e visualização de dados foi realizada através do
+ambiente R, do _software_ QGIS e SAGA GIS [@RLANG20221; @QGIS20221;
+@CONRAD20151]. Os pacotes utilizados para as análises foram: 'tidyverse'
+[@WICKHAM20191], 'ggpubr' [@KASSAMBARA20201], 'prospectr'
+[@STEVENS20221], 'scales' [@WICKHAM20201] e 'RColorBrewer'
+[@NEUWIRTH20141].
+
+Os resultados das análises do pXRF foram espacializadas ao longo do
+perfil para obter-se a distribuição estimada de cada elemento em
+profundidade. O algoritmo utilizado para a espacialização foi o
+Multilevel B-Spline [@CONRAD20151].
+
+A visualização em gráficos da variação dos elementos obtidos pelo pXRF,
+Vis-NIR, assim como de dados laboratoriais em função da profundidade foi
+calculada através da média de cada linha de pontos. Portanto, os
+resultados em cada profundidade (0, 15, 30, ..., 105 cm) consistem na
+média de 5 pontos (Figura \ref{fig:perfis_solo}).
+
+# RESULTADOS E DISCUSSÃO
+
+## Caracterização química e física dos solos
+
+### Organossolo Háplico (OH)
+
+Os resultados das análises químicas mostram clara mudança entre 5 e 35 cm, que
+corresponde ao manto depositado acima do solo (Figuras \ref{fig:perfis_solo} e
+\ref{fig:fertility}). No manto, houve um aumento notável no teor de elementos
+móveis como K$+$, Ca${2+}$ e Mg${2+}$, que provavelmente foram depositados de
+regiões mais elevadas adjacentes. Essa mesma tendência foi demonstrada nos
+valores de saturação por bases (V) (Figura \ref{fig:fertility}).
+
+O teor de matéria orgânica, Al${3+}$ e m seguiram tendência contrária. Foram menores
+nos horizontes superficiais e elevaram-se expressivamente ao atingirem o
+horizonte hístico (no OX e no CX). No OX, o teor de matéria orgânica foi elevado
+na superfície (\~ 19%), devido à deposição recente da vegetação atual,
+apresentando valores menores em 20 cm de profundidade (\~ 8%), com aumento
+significativo logo abaixo, em 35 cm de profundidade (\~ 50%). O grande
+incremento de matéria orgânica em apenas 15 cm não é comumente encontrado em
+outros solos da mesma classe [@SILVANETO20201; @SILVANETO20191; @SOARES20211].
+É possível indicação de antigo horizonte superficial recebedor de grande
+quantidade de matéria orgânica que fora posteriormente soterrado e protegido
+pelo manto que hoje recobre o solo.
+
+![Resultados de análises químicas em função da profundidade em três
+perfis de solo com descontinuidade genética em Lavras, Minas Gerais,
+Brasil.
+\label{fig:fertility}](../../Figures/fertility_depth.png){width="12cm"}
+
+\fonte{Do autor (2022)}
+
+A textura do horizonte A do OX demonstra sua natureza argilosa (Figura
+\ref{fig:textura}). Os maiores teores de silte e areia no horizonte A são
+indicativos de material menos intemperizado em relação aos comumente encontrados
+na região (Latossolos e Argissolos). O alto teor de argila aos 20 cm (horizonte
+C), porém, é um indicativo de deposição de material argiloso de Latossolos e
+Argissolos em posição superior na paisagem, já que, pela espessura do manto,
+assume-se que este é recente, sendo difícil pensar em translocação de grande
+quantidade de argila.
+
+A textura do manto superior ao OH demonstra sua natureza argilosa
+(Figura \ref{fig:textura}). Os maiores teores de silte e areia na
+superfície é indicativo de material menos intemperizado em relação aos
+comumente encontrados na região (Latossolos e Argissolos). O alto teor
+de argila aos 15 cm, porém, é um indicativo de deposição de material
+argiloso de Latossolos e Argissolos do entorno, já que pela espessura do
+manto assume-se que este é recente, sendo difícil pensar translocação de
+grande quantidade de argila.
+
+![Variação de textura em função da profundidade em três solos com
+descontinuidade genética em Lavras, Minas Gerais, Brasil.
+\label{fig:textura}](../../Figures/texture_plots.png){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+### Cambissolo Háplico (CH)
+
+Similar ao OX, o maior teor de bases (K$^+$, Ca$^{2+}$ e Mg$^{2+}$) em
+superfície indica um ambiente deposicional (Figura \ref{fig:fertility}). Picos
+no teor de bases em 50 cm parecem indicar um acúmulo das bases depositadas, que
+são móveis no solo, especialmente em material arenoso.
+
+O teor de Al${3+}$, elemento menos móvel no solo, sofreu mudança brusca abaixo
+de 65 cm, coincidindo com o horizonte genético enterrado observado no perfil
+(Figura \ref{fig:perfis_solo}). O mesmo ocorreu com o teor de matéria
+orgânica, elevando-se no horizonte A soterrado.
+
+Os teores de silte e argila aumentaram abaixo de 65 cm (Figura
+\ref{fig:textura}) e podem favorecer o acúmulo de K$^+$, Ca$^{2+}$ e Mg$^{2+}$
+observado, já que o solo fica gradualmente menos arenoso, podendo diminuir a
+velocidade de translocação dos elementos.
+
+### Gleissolo Háplico (GH)
+
+Assim como nos demais solos, os teores de bases indicaram deposição destes
+elementos móveis na superfície (Figura \ref{fig:fertility}). O teor de matéria
+orgânica foi maior na superfície e decresceu gradualmente, contudo parece haver
+um segundo patamar entre 20 e 35 cm, coincidindo com horizonte de cor mais
+escura abaixo do manto depositado acima do solo (Figura
+\ref{fig:perfis_solo}). Uma possível interpretação para tal tendência é o
+soterramento do antigo horizonte A do GX, que ainda preserva maior teor de
+matéria orgânica.
+
+O teor de Al${3+}$ mostrou uma brusca mudança entre o material recente
+depositado e os horizontes Ab e Cgb que ocorrem a partir dos 35 cm de
+profundidade (Figura \ref{fig:fertility}). A textura parece acompanhar a mesma
+tendência, atingindo maiores valores de argila e menores valores de areia grossa
+em 35 cm; a tendência foi revertida abaixo de 35 cm: argila diminuiu e areia
+grossa aumenta.
+
+Similar ao CX, há influência do material depositado, que possui maiores teores
+de argila e, possivelmente, óxidos de ferro (goethita) pela coloração mais
+amarelada no horizonte C (Figura \ref{fig:perfis_solo}). Solos comuns na
+região incluem Latossolos e Argissolos derivados de granito-gnaisse, que
+geralmente possuem elevados teores de Fe decorrente dos processos pedogenéticos,
+o que corrobora com a hipótese do material depositado na superfície do perfil
+ser proveniente dos solos de cotas mais elevadas no entorno.
+
+## Perfil espectral nas faixas do visível e infravermelho
+
+### Organossolo Háplico (OH)
+
+A intensidade de refletância do OX foi menor que a dos demais solos, não
+ultrapassando 0,375 (Figura \ref{fig:visnir}). A cor escura conferida pela
+matéria orgânica ao solo diminui a refletância geral, resultando em espectros
+mais achatados, de menor refletância [@DEMATTE20191; @BENEDET20201]. Fato
+também observado nas diferentes profundidades: na superfície, o espectro
+possuia maior refletância; em profundidade, no horizonte hístico, a refletância
+diminuiu (Figuras \ref{fig:perfis_solo} e \ref{fig:visnir}).
+
+A remoção do contínuo discrimina melhor os picos de absorção (Figura
+\ref{fig:visnir_cr}). Entre 400 e 700 nm ocorre grande faixa de absorção
+abaixo de 35 cm (início do horizonte hístico), que diferiu dos espectros das
+profundidades 5 e 20 cm. Tal região do espectro é associada a cromóforos, grupos
+funcionais que conferem cor às moléculas [@YANG20191]. Absorções nesta faixa
+são comumente relacionadas a óxidos de ferro e ácidos húmicos presentes na
+matéria orgânica [@THOMAS20221].
+
+A remoção do contínuo discrimina melhor os picos de absorção (Figura
+\ref{fig:visnir_cr}). Entre 400 e 700 nm ocorre grande faixa de absorção
+abaixo de 30 cm (início do horizonte hístico), que as difere dos
+espectros das profundidades 0 e 15 cm. Tal região do espectro é
+associada a cromóforos, grupos funcionais que conferem cor às moléculas
+[@YANG20191]. Absorções nesta faixa são comumente relacionadas a óxidos
+de ferro e ácidos húmicos presentes na matéria orgânica [@THOMAS20221].
+
+![Espectro visível e infravermelho obtido via sensor Vis-NIR em três
+solos com descontinuidade genética em Lavras, Minas Gerais, Brasil.
+\label{fig:visnir}](../../Figures/visnir_plots.png){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+Picos de absorção em 480 nm, mais realçados nas profundidades próximas a 5 e 20
+cm estão associados à goethita [@FANG20181], óxido de ferro comum em
+Latossolos e Argissolos derivados de granito-gnaisse, muito presentes no entorno
+do OX. Picos em 480 nm e grande absorção geral entre 500 e 700 cm no manto
+superficial (até aproximadamente 20 cm) parece indicar deposição de material
+destes solos (Figura \ref{fig:visnir_cr}).
+
+Traços de absorção em 2.268 nm indicam presença de gibbsita [@BENEDET20221;
+@DEMATTE20191], óxido de alumínio presente em solos muito intemperizados. É
+possível identificar um grande pico nesta banda na profundidade 20 cm, onde
+encontra-se o manto depositado mais avermelhado (Figuras \ref{fig:perfis_solo}
+e \ref{fig:visnir_cr}). Esses resultados apresentam mais um indicativo de que
+a origem do material depositado foi um Latossolo ou Argissolo nos arredores de
+OX.
+
+Traços de absorção em 2268 nm indicam presença de gibbsita, óxido de
+alumínio presente em solos muito intemperizados. É possível identificar
+um grande pico nesta banda na profundidade 15 cm, onde encontra-se o
+manto depositado mais avermelhado (Figuras \ref{fig:perfis_solo} e
+\ref{fig:visnir_cr}). É mais um indicativo de que a origem do material
+depositado é um Latossolo ou Argissolo nos arredores de OH.
+
+![Remoção do contínuo do espectro visível e infravermelho obtido via
+sensor Vis-NIR em três solos com descontinuidade genética em Lavras,
+Minas Gerais, Brasil.
+\label{fig:visnir_cr}](../../Figures/visnir_cr_plots.png){width="10cm"}
+
+\fonte{Do autor (2022)}
+
+### Cambissolo Háplico (CH)
+
+Os picos de refletância de CX foram maiores que os demais solos (Figura
+\\ref{fig:visnir}). Sendo derivado de sedimentos provenientes de quartzito, o CX
+é rico em quartzo, mineral resistente ao intemperismo e predominante na fração
+areia de solos brasileiros [@KAMPF20121; SILVA20181]. O quartzo causa efeito
+contrário ao da matéria orgânica: confere coloração clara ao solo, resultando em
+espectros com maiores valores de refletância [@BENEDET20201].
+
+A remoção do contínuo deixa evidente as diferenças espectrais da horizontes
+genéticos enterrados (Figura \ref{fig:visnir_cr}). A porção de cor clara
+acima de 65 cm possui refletância maior em relação ao horizonte hístico. A faixa
+entre 400 e 700 nm, que evidencia compostos orgânicos [@DEMATTE20171], possui
+grande pico de absorção nas profundidades 95 e 110 cm, onde encontra-se o
+horizonte Ab, que possui expressiva elevação no teor de matéria orgânica
+(Figuras \ref{fig:perfis_solo} e \ref{fig:fertility}).
+
+Os picos de absorção em 1.450 e 1.930 nm indicam a presença de grupos O-H
+[@SHI20131], o que corrobora com a mudança de textura observada, indicando uma
+mudança mineralógica em Ab (Figura \ref{fig:textura}). Os picos em 1.930 nm
+aumentam gradativamente com a profundidade, destacando a mudança de material
+observada no perfil.
+
+### Gleissolo Háplico (GH)
+
+Há uma segregação facilmente perceptível entre os espectros de maiores
+profundidades ($>$65 cm) e os de amostras mais superficiais (Figuras
+\ref{fig:visnir}). O material gleizado (horizonte Cg), mais claro, possui
+maiores valores de refletância, similar ao efeito do quartzo que confere cor
+clara ao solo. Isso difere a intensidade da refletância daquela do manto
+depositado (horizontes A e C), que possui maior pigmentação, dos demais
+horizontes abaixo.
+
+Os espectros após remoção do contínuo demonstram feições bem diferentes
+comparados ao OX e CX (Figura \ref{fig:visnir_cr}). As longas faixas de
+absorção entre 480 e 700 nm, indicativos de matéria orgânica e óxidos de
+ferro, não estão presentes, resultante, no caso dos óxidos de ferro, da redução
+desses minerais e sua consequente destruição em ambientes de redução típicos de
+GX. Comparativamente, picos de absorção em 1.400 nm e 2.027 nm são mais acentuados
+e indicam presença, respectivamente, de grupos O-H associados a
+argilominerais 2:1 e caulinita [@BENEDET20221; @DEMATTE20191]. É sinal de
+diferença mineralógica entre este e os demais solos, que não apresentaram
+absorção tão expressiva nestas faixas do espectro.
+
+Como nos solos analisados anteriormente, os dados espectrais discriminaram bem o
+manto depositado e solo subjacente. Amostras em menores profundidades (até 50
+cm) possuem maiores picos de absorção em 480 nm, indicando maior presença de
+óxidos de ferro [@FANG20181], como pode ser observado pelas cores
+avermelhadas nos perfis (Figura \ref{fig:perfis_solo}). Paralelamente, possuem
+menor absorção em 1.400 e 2.027 nm, indicando menor quantidade de minerais 2:1 e
+caulinita, i.e., um material mais intemperizado. Mais uma vez, isso corrobora
+com a hipótese de deposição de sedimentos de solos mais intemperizados no
+entorno dos perfis estudados.
+
+## Teores elementais obtidos via pXRF
+
+### Organossolo Háplico (OH)
+
+A distribuição do teor de elementos fornecida pelo pXRF mostrou faixas muito
+distintas de concentrações entre 5 e 20 cm e o restante do perfil (Figura
+\ref{fig:pxrf_interp}). A descontinuidade entre o horizonte C e Hb fica
+evidente. O maior teor de Fe e menor teor de Si no manto sobrejacente fortalecem
+a hipótese de que os sedimentos se originaram de solos muito intemperizados como
+Latossolos e Argissolos. Valores elevados de Si demonstram a baixa intensidade
+de intemperismo nas condições favoráveis para a formação do horizonte Hb. O Si,
+elemento móvel, já teria sido lixiviado em grande parte em condições de alto
+grau de intemperismo.
+
+![Espacialização dos teores elementais obtidos via sensor pXRF ao longo
+dos perfis de três solos com descontinuidade genética em Lavras, Minas
+Gerais, Brasil.
+\label{fig:pxrf_interp}](../../Figures/pxrf_interp.jpg){width="13cm"}
+
+\fonte{Do autor (2022)}
+
+Além do que é visível no perfil, próximo aos 110 cm de profundidade, nota-se uma
+nova descontinuidade (Figura \ref{fig:pxrf_interp}). Maior teor de Al, Mg, Ti
+e Zr, e menor teor de Si indicando uma alteração química no perfil.
+
+A variação das concentrações em profundidade deixa claro esta descontinuidade
+química (Figura \\ref{fig:pxrf\_depth}). A razão Ti/Zr é muito utilizada para
+identificar descontinuidades litológicas devido à imobilidade dos respectivos
+elementos e sua comum ocorrência em materiais de origem distintos. Aqui, o
+índice Ti/Zr diferencia três zonas: o manto superficial depositado entre 5 e 20
+cm, o horizonte Hb até 80 cm e uma alteração no horizonte Hb abaixo de 95 cm,
+possivelmente indicando diferente composição da matéria orgânica abaixo deste
+ponto.
+
+![Variação dos teores elementais e do índice Ti/Zr em função
+profundidade obtidos via sensor pXRF ao longo dos perfis de três solos
+com descontinuidade genética em Lavras, Minas Gerais, Brasil. Valores em
+ppm. K = 1.000.
+\label{fig:pxrf_depth}](../../Figures/pxrf_depth.png){width="15cm"}
+
+\fonte{Do autor (2022)}
+
+### Cambissolo Háplico (CH)
+
+Os elementos que melhor identificam a descontinuidade entre horizontes em CX
+foram o Fe, Si, Ti e Zr (Figura \ref{fig:pxrf_interp}). O alto teor de Si
+entre a superfície e o Ab foi reflexo do material de origem –quartzito– no qual
+predomina o quartzo (SiO$_2$). A acumulação de elementos móveis próximo a 80 cm
+de profundidade (Figura \ref{fig:pxrf_depth}), como citado anteriormente, pode
+ser devido à mudança de textura entre Bi e Ab (Figura \ref{fig:textura}). Ao
+aumentar o teor de argila e silte, diminui-se o tamanho dos poros e
+consequentemente a condutividade hidráulica do solo, reduzindo a movimentação de
+água e dos elementos.
+
+A razão Ti/Zr foi pequena próximo à superfície, maior ao longo do perfil, e
+volta a decrescer em Ab (Figura \ref{fig:pxrf_depth}). O Fe e Si também
+mostraram tendência diferente após a descontinuidade entre horizontes,
+apresentando menores teores, indicativo de um material distinto.
+
+### Gleissolo Háplico (GH)
+
+Como nos demais solos, a descontinuidade entre horizontes foi facilmente
+percebida ao se observarem as concentrações dos elementos
+\ref{fig:pxrf_interp}). Valores de Si, Ti e Zr foram menores no manto
+sobrejacente, e elevaram-se em profundidade.
+
+Os dados espectrais mostraram maiores picos de absorção de óxidos de ferro
+próximo à superfície, distintos das amostras de maiores profundidades (Figura
+\ref{fig:visnir_cr}). Os dados de pXRF corroboraram com tal observação.
+Valores de Fe no manto acima, de cor amarelada, foram expressivamente maiores
+comparados àqueles do horizonte Cgb (Figuras \ref{fig:perfis_solo} e
+\ref{fig:pxrf_interp}).
+
+Assim como em OX e CX, há mais uma descontinuidade em GX abaixo de 80 cm
+profundidade (Figura \ref{fig:pxrf_depth}). O índice Ti/Zr distinguiu o
+material depositado (A e C) do horizonte glei (Cgb) e também identificou um
+material diferente abaixo de 80 cm. É possível haver relação entre tal tendência
+e uma mancha mais acinzentada observada na parte inferior do perfil (Figura
+\ref{fig:perfis_solo}). Na mesma região, aumentaram os teores de Al, Mg, Si e
+Ti, indicando um material distinto (Figura \ref{fig:pxrf_interp}).
+
+# CONCLUSÕES
+
+Os dados fornecidos pelos sensores pXRF e Vis-NIR foram compatíveis com os
+resultados laboratoriais tradicionais. Permitiram a extensão das interpretações
+para além das análises de rotina de solos brasileiros e possibilitaram
+inferências sobre a mineralogia e a distribuição espacial dos constituintes dos
+solos.
+
+Ambos os sensores demonstraram que os mantos depositados acima de OX e GX
+apresentaram alto teor de Fe, sugerindo que a origem dos sedimentos depositados
+foram solos muito intemperizados com acúmulo residual de óxidos de Fe, como
+Latossolos e Argissolos, comuns na região.
+
+Nos perfis OX e CX, os traços espectrais permitiram não apenas a separação do
+manto sobrejacente, mas também a estratificação dos horizontes, indicando
+diferenças ao longo do horizonte hístico de OX e claro horizonte de transição
+entre os horizontes Bi e Ab no perfil CX.
+
+Os resultados espacializados do pXRF auxiliaram na compreensão da distribuição
+espacial das variações em profundidade detectadas pelos espectros, assim como
+ajudaram a confirmar os traços mineralógicos neles observados. Os três perfis
+apresentaram concentrações químicas díspares entre seus horizontes genéticos
+enterrados e o restante dos perfis. Adicionalmente, fora possível identificar
+alteração nos teores de Ti e Zr, elementos muito estáveis no solo, na
+profundidade próxima aos 110 cm nos três perfis, indicativo de descontinuidade
+litológica.
+
+A principal vantagem do uso de sensores reside em tornar possível a análise de
+grande número de amostras. Em situações corriqueiras, análises convencionais
+de 40 amostras por perfis de 1 m seriam economicamente inviáveis. Com sensores
+próximos, o custo limita-se à aquisição do equipamento, sendo as análises fáceis
+e rápidas, permitindo grande aumento na quantidade e densidade de informações
+sem elevação exagerada de custo.
+
+Aqui, a combinação de análises tradicionais e sensores próximos potencializou o
+poder de interpretação do pedólogo, viabilizando uma análise mais detalhada das
+variações em profundidade dos solos, corpos extremamente heterogêneos e
+descontínuos, cuja variação possui consequências práticas em seus usos.
+
+\newpage
+
+\setstretch{1}
