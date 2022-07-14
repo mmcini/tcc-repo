@@ -4,14 +4,14 @@
 
 # Undergraduate Thesis
 
-[![pt-br](https://img.shields.io/badge/Lang-pt--br-yellow)]()
+[![pt-br](https://img.shields.io/badge/Lang-pt--br-yellow)](https://github.com/mmcini/tcc-repo)
 
 Undergraduate thesis for the acquirement of the Bachelor Degree in Environmental
 and Sanitary Engineering Program in the Federal University of Lavras (UFLA).
 Presented and approved in April, 2022
 
 ### Abstract
-
+<p align="justify">
 Soils play a key role in human activities; they are the basis of food
 production, sustain the majority of human infrastructure and are the cradle of
 most of the vegetation above the continental crust. However, soils are very
@@ -47,6 +47,6 @@ of detecting variations within horizons and quantifying key properties of soils
 that differentiate horizons from each other according to their genesis and
 parent material, proving to be promising tools for pedological studies, which
 invariably demand for greater amounts of data to better comprehend pedogenetic
-processes.
+processes.</p>
 
 [![Manuscript](https://img.shields.io/badge/Read-manuscript-blue)](https://github.com/mmcini/tcc-repo/blob/master/Manuscript/latex/manuscript.pdf)

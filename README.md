@@ -4,13 +4,13 @@
 
 # Trabalho de Conclusão de Curso (TCC)
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)]()
+[![en](https://img.shields.io/badge/Lang-en-red)](https://github.com/mmcini/tcc-repo/blob/master/README.en.md)
 
 Trabalho de conclusão do curso para a obtenção do título de Bacharel em
-Engenharia Ambiental e Sanitária. Apresentado e aprovado em Abri de 2022.
+Engenharia Ambiental e Sanitária. Apresentado e aprovado em Abril de 2022.
 
 ### Resumo
-
+<p align="justify">
 Solos são essenciais para diversas atividades humanas; são a base para a
 produção de alimentos, sustentação majoritária das obras de construção civil e
 berço da maior parte da vegetação na crosta continental. Entretanto, o solo é um
@@ -49,6 +49,6 @@ detectar e quantificar características importantes que diferenciam os horizonte
 entre si, além de variações dentro dos próprios horizontes, e sua gênese e
 material de origem, provando-se ferramentas promissoras para estudos
 pedológicos, nos quais há sempre grande demanda por maior quantidade de dados
-para auxiliar a compreensão da pedogênese.
+para auxiliar a compreensão da pedogênese.</p>
 
 [![Manuscrito](https://img.shields.io/badge/Ler-manuscrito-blue)](https://github.com/mmcini/tcc-repo/blob/master/Manuscript/latex/manuscript.pdf)
