@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="Figures/ufla_logo.png" alt="UFLA" width="400px">
+</p>
+
 # Undergraduate Thesis
 
 [![pt-br](https://img.shields.io/badge/Lang-pt--br-yellow)]()

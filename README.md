@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="Figures/ufla_logo.png" alt="UFLA" width="400px">
+</p>
+
 # Trabalho de Conclusão de Curso (TCC)
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)]()
