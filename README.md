@@ -3,7 +3,7 @@
 [![en](https://img.shields.io/badge/Lang-en-red)](https://github.com/mmcini/tcc-repo/blob/master/README.en.md)
 
 Trabalho de conclusão do curso para a obtenção do título de Bacharel em
-Engenharia Ambiental e Sanitária. Apresentado e aprovado em Abri de 2022.
+Engenharia Ambiental e Sanitária. Apresentado e aprovado em Abril de 2022.
 
 ### Resumo
 <p align="justify">
